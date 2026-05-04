@@ -52,4 +52,7 @@ dependencies {
     
     // ConstraintLayout (opcional, pra layouts modernos)
     implementation 'androidx.constraintlayout:constraintlayout:2.2.0'
+    
+    // Google Ads
+    implementation 'com.google.android.gms:play-services-ads:23.6.0'
 }
