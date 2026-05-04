@@ -5,5 +5,7 @@
         <item name="colorPrimaryDark">#145214</item>
         <item name="colorAccent">#4CAF50</item>
         <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:fitsSystemWindows">true</item>
     </style>
 </resources>
