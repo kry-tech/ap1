@@ -7,11 +7,11 @@ repositories {
 }
 
 android {
-    namespace 'com.exemplo.app'
+    namespace 'com.task2cash.app'
     compileSdk 36
 
     defaultConfig {
-        applicationId "com.exemplo.app"
+        applicationId "com.task2cash.app"
         minSdk 21
         targetSdk 36
         versionCode 1
