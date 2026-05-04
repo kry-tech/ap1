@@ -3,7 +3,7 @@
     <application
         android:allowBackup="true"
         android:label="Task2Cash"
-        android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+        android:theme="@style/Theme.Task2Cash">
         <activity
             android:name=".MainActivity"
             android:exported="true">
