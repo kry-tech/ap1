@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.rewarded.RewardedAd
 import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback
 
@@ -36,7 +37,13 @@ class AdFeedActivity : AppCompatActivity() {
     private fun carregarAnuncio(posicao: Int) {
         val adUnitId = "ca-app-pub-3940256099942544/5224354917"
 
-        RewardedAd.load(this, adUnitId, com.google.android.gms.ads.AdRequest.Builder().build(), object : RewardedAdLoadCallback() {
+        val adRequest = AdRequest.Builder().build()
+
+        RewardedAd.load(this, adUnitId, adRequest, object : RewardedAdLoadCallback() {
+            override fun onAdFailedToLoad(adError: com.google.android.gms.ads.LoadAdError) {
+                Toast.makeText(this@AdFeedActivity, "Erro ao carregar anúncio. Tente novamente.", Toast.LENGTH_SHORT).show()
+            }
+
             override fun onAdLoaded(rewardedAd: RewardedAd) {
                 rewardedAd.show(this@AdFeedActivity) { rewardItem ->
                     Toast.makeText(this@AdFeedActivity, "Você ganhou R$ 0,01!", Toast.LENGTH_SHORT).show()
@@ -48,10 +55,6 @@ class AdFeedActivity : AppCompatActivity() {
 
                     adapter.marcarAssistido(posicao)
                 }
-            }
-
-            override fun onAdFailedToLoad(errorCode: Int) {
-                Toast.makeText(this@AdFeedActivity, "Erro ao carregar anúncio. Tente novamente.", Toast.LENGTH_SHORT).show()
             }
         })
     }
